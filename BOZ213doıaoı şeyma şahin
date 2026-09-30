@@ -1,0 +1,21 @@
+def sure_hesapla(mesafe, hiz):
+    if hiz <= 0:
+        raise ValueError("Hız sıfırdan büyük olmalı.")
+    return mesafe / hiz  # saniye
+
+
+try:
+    mesafe = float(input("Mesafe (metre): "))
+    hiz = float(input("Hız (m/s): "))
+
+    sure = sure_hesapla(mesafe, hiz)
+
+    saat = int(sure // 3600)
+    dakika = int((sure % 3600) // 60)
+    saniye = sure % 60
+
+    print(f"\nToplam süre: {sure:.1f} saniye")
+    print(f"Yani {saat} saat {dakika} dakika {saniye:.0f} saniye")
+
+except ValueError as e:
+    print(f"Hatalı giriş: {e}")
